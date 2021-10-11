@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>atur posisi</title>
+        
+        <link rel="stylesheet" href="normalize.css">
+    </head>
+
+    <style type="text/css">
+     
+        body{
+        
+            background: white;
+            height: auto;
+            min-height: 100%;
+            min-width: 100%;
+            width: 100%;
+            position: fixed;
+            
+        }
+        #objek{
+            position: relative;         
+            background-color: #D2C4DD;
+           border: double brown;
+           padding: 50px;
+           width: 92%;
+           text-align: left;
+        }
+        
+
+        .kunang{
+           
+            position: relative;
+        }
+        #tombol{
+            text-align: ;
+            width: 150%;
+            margin: 90px;
+            height: 300px;
+            top: 90px;
+        }
+    </style>
+
+    <body>
+      
+        <h1 style="text-align: center;"> Game </h1>
+
+        <div id="objek" class="col-md-8">
+            <img src="img/human.png" style="width: 200px; height: 200px" alt="" id="human" class="kunang">
+        </div>
+      
+        <div id="tombol" style="text-align: center;">
+            <div class="btn-group btn-group-sm" style="position: left">
+            <button type="button" class="btn btn-primary" id="atas"><img src="img/atas.png" style="width: 44px; height: 40px"></button><br>
+            <button type="button" class="btn btn-primary" id="kanan" ><img src="img/kiri.png" style="width: 44px; height: 40px"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <button type="button" class="btn btn-primary" id="kiri"><img src="img/kanan.png"style="width: 44px; height: 40px"></button><br>
+            <button type="button" class="btn btn-primary" id="bawah" ><img src="img/bawah.png"style="width: 44px; height: 40px"></button>
+            </div>
+         
+        </div>
+        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+
+            $(function(){
+               var atas = $("#atas");
+               var kanan = $("#kanan");
+                var kiri = $("#kiri");
+                 var bawah = $("#bawah");
+
+         var objek=document.getElementById('objek');
+           document.addEventListener('click', function(){
+            var keyPress= String.fromCharCode(event.click);
+             if(keyPress=="atas"){
+                objek.style.animation='atas 0.5s steps(3) infinite';
+                arah('atas');
+                animasijalan();
+            } else if(keyPress=="kiri"){
+                objek.style.animation='kiri 0.5s steps(3) infinite';
+                 arah('kiri');
+                 animasijalan();
+                 } else if(keyPress=="kanan"){
+                objek.style.animation='kanan 0.5s steps(3) infinite';
+                 arah('kanan');
+                 animasijalan();
+                 } else if(keyPress=="bawah"){
+                objek.style.animation='bawah 0.5s steps(3) infinite';
+                 arah('bawah');
+                 animasijalan();
+            }
+           });
+           
+
+              /*  $(atas).click(function(){
+                  
+                    $(objek).animate({
+                        top : '-=200px',
+                    });
+                    animasijalan();
+                });
+                $(kanan).click(function(){
+                    $(objek).animate({
+                        left : '-=200px',
+
+                    });
+                    animasijalan();
+                });
+                $(kiri).click(function(){
+                    $(objek).animate({
+                        left : '+=150px',
+                    });
+                    animasijalan();
+                });
+                $(bawah).click(function(){
+                    $(objek).animate({
+                        top : '+=150px',
+                        
+                    });
+                    animasijalan();
+                });
+              
+            }) */
+
+             function arah(arah){
+            arahj=arah;
+           }
+
+              function animasijalan(){
+            if(arahj=='atas') {
+              objek.style.top = (objek.offsetTop -= 3) + 'px';  
+          } else if (arahj=='kiri') {
+                objek.style.left = (objek.offsetLeft -= 3) + 'px';
+            }else if (arahj=='kanan') {
+                objek.style.left = (objek.offsetLeft += 3) + 'px';
+            }else if (arahj=='bawah') {
+                objek.style.top = (objek.offsetTop += 3) + 'px';
+            }
+                /*timer = setInterval(animate,30); */
+           }
+        </script>
+    </body>
+    
+</html>
+
